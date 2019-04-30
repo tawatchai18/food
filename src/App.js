@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Menu, Layout, Button, Checkbox, Form, Card, Row, Col } from 'antd';
+import { Menu, Layout, Button, Tabs, Checkbox, Form, Card, Row, Col } from 'antd';
 
-// const SubMenu = Menu.SubMenu;
-// const MenuItemGroup = Menu.ItemGroup;
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 const FormItem = Form.Item;
 
@@ -131,8 +131,8 @@ export class AppForm extends Component {
     }
   }
   render() {
-    // const { getFieldDecorator } = this.props.form;
-    // const TabPane = Tabs.TabPane;
+    const { getFieldDecorator } = this.props.form;
+    const TabPane = Tabs.TabPane;
 
     function callback(key) {
       console.log(key);
@@ -186,8 +186,5 @@ export class AppForm extends Component {
 const App = Form.create()(AppForm);
 
 export default App;
-
-
-
 
 
