@@ -72,9 +72,10 @@ export class AppForm extends Component {
         </div>
       )
     } else if (this.state.next === 'Home') {
+      const a = [1, 10, 100, 1000, 10000];
       return (
         <div>
-          <div style={{ marginTop: 100, }}>
+          <div style={{ marginTop: 100, fontFamily: 'Taviraj'}}>
             <center>
               <Card style={{ width: 1000, marginTop: 50 }}>
                 <div style={{ textAlign: "left" }}>
