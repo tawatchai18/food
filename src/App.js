@@ -50,7 +50,7 @@ export class AppForm extends Component {
   test = () => {
     const { person } = this.state;
     const dateToFormat = person.published_at;
-    console.log(person.id, '111110');
+    console.log(person.assets, '111110');
 
     const { Footer } = Layout;
     const { getFieldDecorator } = this.props.form;
@@ -59,7 +59,7 @@ export class AppForm extends Component {
         <div className="Font">
           <center>
             <img style={{ height: 300, width: 400, marginTop: 200}} src="Gif.gif"></img>
-            <h2 style={{ marginTop: 100, fontSize: 28, fontFamily: 'Kanit' }}>
+            <h2 style={{ marginTop: 100, fontSize: 30, fontFamily: 'Kanit' }}>
               ขอบคุณสำหรับการดาวน์โหลด FFC AirSync
               {/* Thank you for downloading FFC AirSync! */}
             </h2>
@@ -78,7 +78,7 @@ export class AppForm extends Component {
     } else if (this.state.next === 'Home') {
       return (
         <div>
-          <div style={{ marginTop: 100, fontFamily: 'Taviraj' }}>
+          <div style={{ marginTop: 100 }}>
             <Row>
               <Col span={8}>
                 <img style={{ height: 300, width: 300, marginLeft: 150, marginTop: -130 }} src="LOGO_Color.png"></img>
@@ -92,7 +92,7 @@ export class AppForm extends Component {
                 <Col className="gutter-row" span={6}>
                   <div className="gutter-box" style={{ textAlign: "initial" }}>
                     <div className="gutter-box" style={{ textAlign: "initial", }}>
-                      <b style={{ fontSize: 18 }}>System requirements</b>
+                      <p style={{ fontSize: 18 }}>System requirements</p>
                       <p>- OS: Windows</p>
                       <p>- Java: 1.8</p>
                       <p>- Ram: 4 GB ขึ้นไป</p>
@@ -102,7 +102,7 @@ export class AppForm extends Component {
                 </Col>
                 <Col className="gutter-row" span={6}>
                   <div className="gutter-box" style={{ textAlign: "initial", marginLeft:100 }}>
-                    <b style={{ fontSize: 18 }}>Description</b>
+                    <p style={{ fontSize: 18 }}>Description</p>
                     <p>- Version:&nbsp;{person.tag_name}</p>
                     <p>- เผยแพร่:&nbsp;<Moment format="DD/MM/YYYY">{dateToFormat}</Moment></p>
                   </div>
