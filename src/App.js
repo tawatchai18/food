@@ -56,7 +56,7 @@ export class AppForm extends Component {
     const { getFieldDecorator } = this.props.form;
     if (this.state.next === 'q') {
       return (
-        <div className="Font">
+        <div>
           <center>
             <img style={{ height: 300, width: 400, marginTop: 200}} src="Gif.gif"></img>
             <h2 style={{ marginTop: 100, fontSize: 30, fontFamily: 'Kanit' }}>
