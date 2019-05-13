@@ -169,7 +169,7 @@ export class AppForm extends Component {
     }
   }
   async componentDidMount() {
-    const url = "https://api.github.com/repos/ffc-nectec/airsync-launcher/releases/latest";
+    const url = "https://api.github.com/repos/ffc-nectec/airsync/releases/latest";
     const response = await fetch(url);
     const data = await response.json();
     this.setState({ person: data })
