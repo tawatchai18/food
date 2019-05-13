@@ -56,15 +56,14 @@ export class AppForm extends Component {
     const { getFieldDecorator } = this.props.form;
     if (this.state.next === 'q') {
       return (
-        <div>
+        <div className="Font">
           <center>
-            {/* <a style={{ marginLeft: 1300 }} type="primary" onClick={this.handleH}>กลับหน้าหลัก</a> */}
             <img style={{ height: 300, width: 400, marginTop: 200}} src="Gif.gif"></img>
-            <h2 style={{ marginTop: 100, fontSize: 24 }}>
+            <h2 style={{ marginTop: 100, fontSize: 28, fontFamily: 'Kanit' }}>
               ขอบคุณสำหรับการดาวน์โหลด FFC AirSync
               {/* Thank you for downloading FFC AirSync! */}
             </h2>
-            <h3 style={{ fontSize: 24 }} class="sub-title no-margin-bottom">หากท่าน Download FFC AirSync ไม่ได้กรุณากดลิงค์ <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">ffc airsync link</a>.</h3>
+            <h3 style={{ fontSize: 24, fontFamily: 'Kanit'}} class="sub-title no-margin-bottom">หากท่านดาวน์โหลด FFC AirSync ไม่ได้ กรุณากด <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">ffc airsync link</a>.</h3>
           </center>
           <Layout style={{ marginTop: 800, backgroundColor: '#1DA57A' }}>
             <Footer style={{ backgroundColor: '#1DA57A' }}>
@@ -116,7 +115,7 @@ export class AppForm extends Component {
             <p style={{ fontSize: 16, marginLeft: 220, color: '#24292e' }}>กรุณาอ่านข้อตกลงการใช้บริการและทำความเข้าใจ ก่อน download ffc airsync</p>
             <center style={{ marginTop: -35 }}>
               <Card style={{ width: 1000, marginTop: 50 }}>
-                <div style={{ textAlign: "left" }}>
+                <div className="Fontsize" style={{ textAlign: "left" }}>
                   <p style={{ marginTop: 10 }}><h2>ข้อตกลงการใช้บริการ</h2></p><hr></hr>
                   <p style={{ marginTop: 20, fontSize: 16, color: '#24292e' }}>โปรดอ่านข้อตกลงฉบับนี้อย่างระมัดระวังก่อนใช้บริการ และโปรดปฏิบัติตามเงื่อนไข ตลอดจนข้อกำหนดในข้อตกลงฉบับนี้อย่างเคร่งครัด</p>
                   <p style={{ marginTop: 20, color: '#24292e' }}><h2>ซึ่งในข้อตกลงการให้บริการนี้ ให้</h2></p><hr></hr>

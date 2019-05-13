@@ -25,6 +25,13 @@ body {
   font-size: large;
 }
 
+.Fontsize {
+  font-family: 'Taviraj', sans-serif;
+  }
+.Font {
+  font-family: 'Kanit', sans-serif;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
