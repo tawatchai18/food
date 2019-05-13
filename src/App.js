@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Menu, Layout, Button, Tabs, Checkbox, Form, Card, Row, Col } from 'antd';
-
+import { Menu, Layout, Button, Tabs, Checkbox, Form, Card, Row, Col, Icon } from 'antd';
+import Moment from 'react-moment';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -12,6 +12,7 @@ export class AppForm extends Component {
     super(props);
     this.state = {
       next: 'Home',
+      person: ''
     };
   }
 
@@ -25,9 +26,7 @@ export class AppForm extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         setTimeout((anchor) => {
-          // window.open('https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe', '_blank')
           window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe", 100);
-          // this.setState({ redirect: true  })
         }, 0);
       }
       if (!err) {
@@ -49,6 +48,10 @@ export class AppForm extends Component {
   }
 
   test = () => {
+    const { person } = this.state;
+    const dateToFormat = person.published_at;
+    console.log(person.id, '111110');
+
     const { Footer } = Layout;
     const { getFieldDecorator } = this.props.form;
     if (this.state.next === 'q') {
@@ -56,10 +59,12 @@ export class AppForm extends Component {
         <div>
           <center>
             {/* <a style={{ marginLeft: 1300 }} type="primary" onClick={this.handleH}>กลับหน้าหลัก</a> */}
-            <h2 style={{ marginTop: 100 }}>
-              Thank you for downloading FFC AirSync!
+            <img style={{ height: 300, width: 400, marginTop: 200}} src="Gif.gif"></img>
+            <h2 style={{ marginTop: 100, fontSize: 24 }}>
+              ขอบคุณสำหรับการดาวน์โหลด FFC AirSync
+              {/* Thank you for downloading FFC AirSync! */}
             </h2>
-            <h3 class="sub-title no-margin-bottom">Your download should start shortly. If it doesn't, please use the <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">ffc airsync link</a>.</h3>
+            <h3 style={{ fontSize: 24 }} class="sub-title no-margin-bottom">หากท่าน Download FFC AirSync ไม่ได้กรุณากดลิงค์ <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">ffc airsync link</a>.</h3>
           </center>
           <Layout style={{ marginTop: 800, backgroundColor: '#1DA57A' }}>
             <Footer style={{ backgroundColor: '#1DA57A' }}>
@@ -72,11 +77,44 @@ export class AppForm extends Component {
         </div>
       )
     } else if (this.state.next === 'Home') {
-      const a = [1, 10, 100, 1000, 10000];
       return (
         <div>
-          <div style={{ marginTop: 100, fontFamily: 'Taviraj'}}>
-            <center>
+          <div style={{ marginTop: 100, fontFamily: 'Taviraj' }}>
+            <Row>
+              <Col span={8}>
+                <img style={{ height: 300, width: 300, marginLeft: 150, marginTop: -130 }} src="LOGO_Color.png"></img>
+              </Col>
+              <Col span={12}>
+                <h1 style={{ fontSize: 42, marginLeft: 110, fontWeight: 700 }}>DOWNLOAD FFC AIRSYNC</h1>
+              </Col>
+            </Row>
+            <center style={{ marginLeft: 200 }}>
+              <Row gutter={16} style={{ marginBottom: 50, fontSize: 16, marginLeft: 50 }}>
+                <Col className="gutter-row" span={6}>
+                  <div className="gutter-box" style={{ textAlign: "initial" }}>
+                    <div className="gutter-box" style={{ textAlign: "initial", }}>
+                      <b style={{ fontSize: 18 }}>System requirements</b>
+                      <p>- OS: Windows</p>
+                      <p>- Java: 1.8</p>
+                      <p>- Ram: 4 GB ขึ้นไป</p>
+                      <p>- จำเป็นต้องติดตั้ง JHCIS</p>
+                   </div>
+                  </div>
+                </Col>
+                <Col className="gutter-row" span={6}>
+                  <div className="gutter-box" style={{ textAlign: "initial", marginLeft:100 }}>
+                    <b style={{ fontSize: 18 }}>Description</b>
+                    <p>- Version:&nbsp;{person.tag_name}</p>
+                    <p>- เผยแพร่:&nbsp;<Moment format="DD/MM/YYYY">{dateToFormat}</Moment></p>
+                  </div>
+                </Col>
+                <Col className="gutter-row" span={6}>
+                  <div className="gutter-box"></div>
+                </Col>
+              </Row>
+            </center>
+            <p style={{ fontSize: 16, marginLeft: 220, color: '#24292e' }}>กรุณาอ่านข้อตกลงการใช้บริการและทำความเข้าใจ ก่อน download ffc airsync</p>
+            <center style={{ marginTop: -35 }}>
               <Card style={{ width: 1000, marginTop: 50 }}>
                 <div style={{ textAlign: "left" }}>
                   <p style={{ marginTop: 10 }}><h2>ข้อตกลงการใช้บริการ</h2></p><hr></hr>
@@ -106,10 +144,10 @@ export class AppForm extends Component {
               <Form.Item>
                 {getFieldDecorator('remember',
                   {
-                    rules: [{ required: true, message: 'กรุณากดยอมรับเงื่อนไข' }],
+                    rules: [{ required: true, message: 'กรุณากดยอมรับข้อตกลงการใช้บริการ' }],
                   })(
                     <div style={{ marginTop: 30, width: 360, }}>
-                      <Checkbox style={{ fontSize: 16 }}>ยอมรับเงื่อนไข</Checkbox>
+                      <Checkbox style={{ fontSize: 16 }}>ยอมรับข้อตกลงการใช้บริการ</Checkbox>
                     </div>
                   )}
               </Form.Item>
@@ -131,24 +169,30 @@ export class AppForm extends Component {
       )
     }
   }
+  async componentDidMount() {
+    const url = "https://api.github.com/repos/ffc-nectec/airsync-launcher/releases/latest";
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({ person: data })
+    console.log(data, 'dkhdfbg');
+  }
+
   render() {
-    const { getFieldDecorator } = this.props.form;
-    const TabPane = Tabs.TabPane;
 
-    function callback(key) {
-      console.log(key);
-    }
-
+    // const { getFieldDecorator } = this.props.form;
+    // const TabPane = Tabs.TabPane;
     return (
       <div style={{}}>
         <div className="App">
-          <div style={{ height: 91, backgroundColor: '#46bd93' }}>
+          <div style={{ height: 105, backgroundColor: '#46bd93' }}>
             <Row>
               <Col span={6}>
-                <img style={{ height: 80, width: 100, }} src="LOGO_White.png"></img>
+                <a href="https://ffc.in.th/index">
+                  <img style={{ height: 100, width: 100, }} src="LOGO_White.png" ></img>
+                </a>
               </Col>
               <Col>
-                <Menu style={{ marginLeft: 695, marginTop: 44, backgroundColor: '#46bd93' }}
+                <Menu style={{ marginLeft: 695, marginTop: 58, backgroundColor: '#46bd93' }}
                   onClick={this.handleClick}
                   selectedKeys={[this.state.current]}
                   mode="horizontal"
@@ -175,9 +219,6 @@ export class AppForm extends Component {
               </Col>
             </Row>
           </div>
-          {/* <div style={{ height: 80, marginTop: 10, backgroundColor: '#46bd93' }}>
-            <h style={{ color: "#fff", fontSize: 40 }}>FFC AIRSYNC</h>
-          </div> */}
         </div >
         {this.test()}
       </div>
