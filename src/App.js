@@ -58,12 +58,11 @@ export class AppForm extends Component {
       return (
         <div>
           <center>
-            <img style={{ height: 300, width: 400, marginTop: 200 }} src="Gif.gif"></img>
             <h2 style={{ marginTop: 100, fontSize: 30, fontFamily: 'Kanit' }}>
               ขอบคุณสำหรับการดาวน์โหลด FFC AirSync
               {/* Thank you for downloading FFC AirSync! */}
             </h2>
-            <h3 style={{ fontSize: 24, fontFamily: 'Kanit' }} class="sub-title no-margin-bottom">หากท่านดาวน์โหลด FFC AirSync ไม่ได้ กรุณากด <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">ffc airsync link</a>.</h3>
+            <h3 style={{ fontSize: 24, fontFamily: 'Kanit' }} class="sub-title no-margin-bottom">หากท่านดาวน์โหลด FFC AirSync ไม่ได้ กรุณากดที่นี่ <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">link</a>.</h3>
           </center>
           <Layout style={{ marginTop: 800, backgroundColor: '#1DA57A' }}>
             <Footer style={{ backgroundColor: '#1DA57A' }}>
