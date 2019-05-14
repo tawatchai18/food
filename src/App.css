@@ -30,9 +30,15 @@ body {
   }
 .Font {
   font-family: 'Kanit', sans-serif;
+  max-width: 1024px;
+  margin-left: 250px
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+  
+ @media screen and (max-width: 1024px) {
+  /* Add your styles for devices with a maximum width of 1024 */
+ }
