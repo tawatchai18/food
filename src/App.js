@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Menu, Layout, Button, Tabs, Checkbox, Form, Card, Row, Col, Icon } from 'antd';
+import { Menu, Layout, Button, Tabs, Checkbox, Form, Card, Row, Col} from 'antd';
 import Moment from 'react-moment';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -58,12 +58,12 @@ export class AppForm extends Component {
       return (
         <div>
           <center>
-            <img style={{ height: 300, width: 400, marginTop: 200}} src="Gif.gif"></img>
+            <img style={{ height: 300, width: 400, marginTop: 200 }} src="Gif.gif"></img>
             <h2 style={{ marginTop: 100, fontSize: 30, fontFamily: 'Kanit' }}>
               ขอบคุณสำหรับการดาวน์โหลด FFC AirSync
               {/* Thank you for downloading FFC AirSync! */}
             </h2>
-            <h3 style={{ fontSize: 24, fontFamily: 'Kanit'}} class="sub-title no-margin-bottom">หากท่านดาวน์โหลด FFC AirSync ไม่ได้ กรุณากด <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">ffc airsync link</a>.</h3>
+            <h3 style={{ fontSize: 24, fontFamily: 'Kanit' }} class="sub-title no-margin-bottom">หากท่านดาวน์โหลด FFC AirSync ไม่ได้ กรุณากด <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">ffc airsync link</a>.</h3>
           </center>
           <Layout style={{ marginTop: 800, backgroundColor: '#1DA57A' }}>
             <Footer style={{ backgroundColor: '#1DA57A' }}>
@@ -83,8 +83,11 @@ export class AppForm extends Component {
               <Col span={8}>
                 <img style={{ height: 300, width: 300, marginLeft: 150, marginTop: -130 }} src="LOGO_Color.png"></img>
               </Col>
-              <Col span={12}>
-                <h1 style={{ fontSize: 42, marginLeft: 110, fontWeight: 700 }}>DOWNLOAD FFC AIRSYNC</h1>
+              <Col span={6}>
+                <p style={{ fontSize: 42, marginLeft: 110, fontWeight:200 }}>DOWNLOAD</p>
+              </Col>
+              <Col span={6}>
+                <h style={{ fontSize: 42, marginLeft: -125}}>FFC AIRSYNC</h>
               </Col>
             </Row>
             <center style={{ marginLeft: 200 }}>
@@ -97,11 +100,11 @@ export class AppForm extends Component {
                       <p>- Java: 1.8</p>
                       <p>- Ram: 4 GB ขึ้นไป</p>
                       <p>- จำเป็นต้องติดตั้ง JHCIS</p>
-                   </div>
+                    </div>
                   </div>
                 </Col>
                 <Col className="gutter-row" span={6}>
-                  <div className="gutter-box" style={{ textAlign: "initial", marginLeft:100 }}>
+                  <div className="gutter-box" style={{ textAlign: "initial", marginLeft: 100 }}>
                     <p style={{ fontSize: 18 }}>Description</p>
                     <p>- Version:&nbsp;{person.tag_name}</p>
                     <p>- เผยแพร่:&nbsp;<Moment format="DD/MM/YYYY">{dateToFormat}</Moment></p>
@@ -112,7 +115,7 @@ export class AppForm extends Component {
                 </Col>
               </Row>
             </center>
-            <p style={{ fontSize: 16, marginLeft: 220, color: '#24292e' }}>กรุณาอ่านข้อตกลงการใช้บริการและทำความเข้าใจ ก่อน download ffc airsync</p>
+            <p style={{ fontSize: 16, marginRight:490, color: '#24292e' }}>กรุณาอ่านข้อตกลงการใช้บริการและทำความเข้าใจ ก่อน download ffc airsync</p>
             <center style={{ marginTop: -35 }}>
               <Card style={{ width: 1000, marginTop: 50 }}>
                 <div className="Fontsize" style={{ textAlign: "left" }}>
@@ -181,44 +184,42 @@ export class AppForm extends Component {
     // const { getFieldDecorator } = this.props.form;
     // const TabPane = Tabs.TabPane;
     return (
-      <div style={{}}>
-        <div className="App">
-          <div style={{ height: 105, backgroundColor: '#46bd93' }}>
-            <Row>
-              <Col span={6}>
-                <a href="https://ffc.in.th/index">
-                  <img style={{ height: 100, width: 100, }} src="LOGO_White.png" ></img>
-                </a>
-              </Col>
-              <Col>
-                <Menu style={{ marginLeft: 695, marginTop: 58, backgroundColor: '#46bd93' }}
-                  onClick={this.handleClick}
-                  selectedKeys={[this.state.current]}
-                  mode="horizontal"
-                >
-                  <Menu.Item key="alipay">
-                    <a href="https://ffc.in.th/#What" target="_blank" rel="noopener noreferrer">ABOUT</a>
-                  </Menu.Item>
-                  <Menu.Item key="alipay">
-                    <a href="https://ffc.in.th/#Who" target="_blank" rel="noopener noreferrer">USER</a>
-                  </Menu.Item>
-                  <Menu.Item key="alipay">
-                    <a href="https://ffc.in.th/#tour" target="_blank" rel="noopener noreferrer">FEATURES</a>
-                  </Menu.Item>
-                  <Menu.Item key="alipay">
-                    <a href="https://ffc.in.th/FAQ-ffc.html" target="_blank" rel="noopener noreferrer">FAQ</a>
-                  </Menu.Item>
-                  <Menu.Item key="alipay">
-                    <a href="https://ffc.in.th/download-ffc.html" target="_blank" rel="noopener noreferrer">DOWNLOAD</a>
-                  </Menu.Item>
-                  <Menu.Item key="alipay">
-                    <a href="https://ffc.in.th/download-ffc.html#contact" target="_blank" rel="noopener noreferrer">CONTACT</a>
-                  </Menu.Item>
-                </Menu>
-              </Col>
-            </Row>
-          </div>
-        </div >
+      <div className="App">
+        <div style={{ height: 105, backgroundColor: '#46bd93' }}>
+          <Row>
+            <Col span={6}>
+              <a href="https://ffc.in.th/index">
+                <img style={{ height: 100, width: 100, }} src="LOGO_White.png" ></img>
+              </a>
+            </Col>
+            <Col>
+              <Menu style={{ marginLeft: 695, marginTop: 58, backgroundColor: '#46bd93' }}
+                onClick={this.handleClick}
+                selectedKeys={[this.state.current]}
+                mode="horizontal"
+              >
+                <Menu.Item key="alipay">
+                  <a href="https://ffc.in.th/#What" target="_blank" rel="noopener noreferrer">ABOUT</a>
+                </Menu.Item>
+                <Menu.Item key="alipay">
+                  <a href="https://ffc.in.th/#Who" target="_blank" rel="noopener noreferrer">USER</a>
+                </Menu.Item>
+                <Menu.Item key="alipay">
+                  <a href="https://ffc.in.th/#tour" target="_blank" rel="noopener noreferrer">FEATURES</a>
+                </Menu.Item>
+                <Menu.Item key="alipay">
+                  <a href="https://ffc.in.th/FAQ-ffc.html" target="_blank" rel="noopener noreferrer">FAQ</a>
+                </Menu.Item>
+                <Menu.Item key="alipay">
+                  <a href="https://ffc.in.th/download-ffc.html" target="_blank" rel="noopener noreferrer">DOWNLOAD</a>
+                </Menu.Item>
+                <Menu.Item key="alipay">
+                  <a href="https://ffc.in.th/download-ffc.html#contact" target="_blank" rel="noopener noreferrer">CONTACT</a>
+                </Menu.Item>
+              </Menu>
+            </Col>
+          </Row>
+        </div>
         {this.test()}
       </div>
     );
