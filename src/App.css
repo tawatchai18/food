@@ -28,11 +28,18 @@ body {
 .Fontsize {
   font-family: 'Taviraj', sans-serif;
   }
+
 .Font {
   font-family: 'Kanit', sans-serif;
   max-width: 1024px;
-  margin-left: 250px
+  margin-left: 60px
 }
+
+
+.Logo {
+  max-width: 1024px;
+  margin-left: 60px
+  }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

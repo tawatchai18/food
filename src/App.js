@@ -71,10 +71,11 @@ export class AppForm extends Component {
         <div>
           <div style={{ marginTop: 100 }}>
             <center>
+            <div className="Logo">
               <Row gutter={16} style={{ fontSize: 16, marginLeft: 50 }}>
                 <Col className="gutter-row" md={8}>
                   <div className="gutter-box">
-                    <img style={{ height: 300, width: 300, marginTop: -130, marginLeft: 150 }} src="LOGO_Color.png"></img>
+                    <img style={{ height: 300, width: 300, marginTop: -130, marginLeft: -100 }} src="LOGO_Color.png"></img>
                   </div>
                 </Col>
                 <Col className="gutter-row" md={12}>
@@ -83,9 +84,11 @@ export class AppForm extends Component {
                   </div>
                 </Col>
               </Row>
+              </div>
             </center>
+            <center>
             <div className="Font">
-              <Row gutter={16} style={{ marginBottom: 50, fontSize: 16, }}>
+              <Row gutter={16} style={{ marginBottom: 50, fontSize: 16, width: 1000 }}>
                 <Col className="gutter-row" span={6}>
                   <div className="gutter-box" style={{ textAlign: "initial", }}>
                     <p style={{ fontSize: 18 }}>System requirements</p>
@@ -104,6 +107,7 @@ export class AppForm extends Component {
                 </Col>
               </Row>
             </div>
+            </center>
             <p style={{ fontSize: 16, marginRight: 490, color: '#24292e' }}>กรุณาอ่านข้อตกลงการใช้บริการและทำความเข้าใจ ก่อน download ffc airsync</p>
             <center style={{ marginTop: -35 }}>
               <Card style={{ width: 1000, marginTop: 50 }}>
@@ -167,7 +171,7 @@ export class AppForm extends Component {
         <Layout>
           <Header className="header" style={{ backgroundColor: '#46bd93', height: 105 }}>
             <div className="gutter-example">
-              <Row gutter={16}>
+              <Row gutter={24}>
                 <Col className="gutter-row" span={8}>
                   <div className="gutter-box">
                     <a href="https://ffc.in.th/index">
@@ -180,7 +184,7 @@ export class AppForm extends Component {
                     <Menu
                       mode="horizontal"
                       defaultSelectedKeys={['2']}
-                      style={{ lineHeight: '103px', backgroundColor: '#46bd93', height: 106, marginLeft: 695, fontSize: 16 }}
+                      style={{ lineHeight: '103px', backgroundColor: '#46bd93', height: 106, marginLeft: 560, fontSize: 16 }}
                     >
                       <Menu.Item key="alipay">
                         <a href="https://ffc.in.th/#What" target="_blank" rel="noopener noreferrer" >ABOUT</a>
@@ -206,7 +210,7 @@ export class AppForm extends Component {
               </Row>
             </div>
           </Header>
-          <Content style={{ backgroundColor: '#fff', minHeight: '220vh' }}>
+          <Content style={{ backgroundColor: '#fff' }}>
             {this.test()}
           </Content>
           <Footer style={{ backgroundColor: '#1DA57A' }}>
