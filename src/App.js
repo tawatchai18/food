@@ -170,7 +170,7 @@ export class AppForm extends Component {
         {/* <div style={{ height: 105, backgroundColor: '#46bd93' }}> */}
         <Layout>
           <Header className="header" style={{ backgroundColor: '#46bd93', height: 105 }}>
-            <div className="gutter-example">
+            <div className="header">
               <Row gutter={24}>
                 <Col className="gutter-row" span={8}>
                   <div className="gutter-box">
@@ -179,7 +179,7 @@ export class AppForm extends Component {
                     </a>
                   </div>
                 </Col>
-                <Col className="gutter-row">
+                <Col className="menu">
                   <div className="gutter-box">
                     <Menu
                       mode="horizontal"

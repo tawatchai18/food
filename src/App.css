@@ -40,6 +40,12 @@ body {
   max-width: 1024px;
   margin-left: 60px
   }
+.header {
+  max-width: 100%;
+}
+.menu{ 
+  margin-left: 170px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
