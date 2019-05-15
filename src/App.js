@@ -95,7 +95,7 @@ export class AppForm extends Component {
                     <p>- จำเป็นต้องติดตั้ง JHCIS</p>
                   </div>
                 </Col>
-                <Col className="gutter-row" span={6}>
+                <Col className="gutter-row" span={8}>
                   <div className="gutter-box" style={{ textAlign: "initial", marginLeft: 100 }}>
                     <p style={{ fontSize: 18 }}>Description</p>
                     <p>- Version:&nbsp;{person.tag_name}</p>
@@ -211,7 +211,7 @@ export class AppForm extends Component {
           </Content>
           <Footer style={{ backgroundColor: '#1DA57A' }}>
             <center>
-              <img style={{ height: 50, width: 100 }} src="nstda.png"></img>
+              <img style={{ height: 45, width: 100 }} src="nstda.png"></img>
               <p style={{ fontSize: 16, color: '#fff', marginTop: 5 }}>สงวนลิขสิทธิ์ ตาม พ.ร.บ.ลิขสิทธิ์ พ.ศ. 2537 โดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ</p>
             </center>
           </Footer>
