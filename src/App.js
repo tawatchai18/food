@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import Toolbar from './components/Toolbar/Toolbar';
+import SideDrawer from './components/SideDrawer/SideDrawer';
+import Backdrop from './components/Backdrop/Backdrop';
 import './App.css';
-import { Menu, Layout, Button, Tabs, Checkbox, Form, Card, Row, Col } from 'antd';
+import { Layout, Button, Tabs, Checkbox, Form, Card, Row, Col, Menu } from 'antd';
 import Moment from 'react-moment';
+// import { Menu } from 'semantic-ui-react'
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -12,7 +17,8 @@ export class AppForm extends Component {
     super(props);
     this.state = {
       next: 'Home',
-      person: ''
+      person: '',
+      sideDrawerOpen: false,
     };
   }
 
@@ -60,7 +66,6 @@ export class AppForm extends Component {
           <center>
             <h2 style={{ marginTop: 200, fontSize: 30, fontFamily: 'Kanit' }}>
               ขอบคุณสำหรับการดาวน์โหลด FFC AirSync
-              {/* Thank you for downloading FFC AirSync! */}
             </h2>
             <h3 style={{ fontSize: 24, fontFamily: 'Kanit' }} class="sub-title no-margin-bottom">หากท่านดาวน์โหลด FFC AirSync ไม่ได้ กรุณากดที่นี่ <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">link</a>.</h3>
           </center>
@@ -68,49 +73,49 @@ export class AppForm extends Component {
       )
     } else if (this.state.next === 'Home') {
       return (
-        <div>
+        <Layout style={{ minHeight: '120vh', backgroundColor: '#fff' }}>
           <div style={{ marginTop: 100 }}>
             <center>
-            <div className="Logo">
-              <Row gutter={16} style={{ fontSize: 16, marginLeft: 50 }}>
-                <Col className="gutter-row" md={8}>
-                  <div className="gutter-box">
-                    <img style={{ height: 300, width: 300, marginTop: -130, marginLeft: -100 }} src="LOGO_Color.png"></img>
-                  </div>
-                </Col>
-                <Col className="gutter-row" md={12}>
-                  <div className="gutter-box">
-                    <p style={{ fontSize: 42, marginLeft: -30, fontWeight: 200 }}>DOWNLOAD <h style={{ fontSize: 42, fontWeight: 500 }}>FFC AIRSYNC</h></p>
-                  </div>
-                </Col>
-              </Row>
+              <div className="Logo">
+                <Row gutter={16} style={{ fontSize: 16, marginLeft: 50 }}>
+                  <Col className="gutter-row" md={8}>
+                    <div className="gutter-box">
+                      <img style={{ height: 300, width: 300, marginTop: -130, marginLeft: 130 }} src="LOGO_Color.png"></img>
+                    </div>
+                  </Col>
+                  <Col className="gutter-row" md={14}>
+                    <div className="gutter-box">
+                      <p style={{ fontSize: 42, marginLeft: -30, fontWeight: 200 }}>DOWNLOAD <h style={{ fontSize: 42, fontWeight: 500 }}>FFC AIRSYNC</h></p>
+                    </div>
+                  </Col>
+                </Row>
               </div>
             </center>
             <center>
-            <div className="Font">
-              <Row gutter={16} style={{ marginBottom: 50, fontSize: 16, width: 1000 }}>
-                <Col className="gutter-row" span={6}>
-                  <div className="gutter-box" style={{ textAlign: "initial", }}>
-                    <p style={{ fontSize: 18 }}>System requirements</p>
-                    <p>- OS: Windows</p>
-                    <p>- Java: 1.8</p>
-                    <p>- Ram: 4 GB ขึ้นไป</p>
-                    <p>- จำเป็นต้องติดตั้ง JHCIS</p>
-                  </div>
-                </Col>
-                <Col className="gutter-row" span={8}>
-                  <div className="gutter-box" style={{ textAlign: "initial", marginLeft: 100 }}>
-                    <p style={{ fontSize: 18 }}>Description</p>
-                    <p>- Version:&nbsp;{person.tag_name}</p>
-                    <p>- เผยแพร่:&nbsp;<Moment format="DD/MM/YYYY">{dateToFormat}</Moment></p>
-                  </div>
-                </Col>
-              </Row>
-            </div>
+              <div className="Font">
+                <Row gutter={16} style={{ marginBottom: 50, fontSize: 16, maxWidth: 1000,marginLeft:'20px',marginRight:'20px' }}>
+                  <Col className="gutter-row" span={6}>
+                    <div className="gutter-box" style={{ textAlign: "initial", }}>
+                      <p style={{ fontSize: 18 }}>System requirements</p>
+                      <p>- OS: Windows</p>
+                      <p>- Java: 1.8</p>
+                      <p>- Ram: 4 GB ขึ้นไป</p>
+                      <p>- จำเป็นต้องติดตั้ง JHCIS</p>
+                    </div>
+                  </Col>
+                  <Col className="gutter-row" span={8}>
+                    <div className="gutter-box" style={{ textAlign: "initial", marginLeft: 100 }}>
+                      <p style={{ fontSize: 18 }}>Description</p>
+                      <p>- Version:&nbsp;{person.tag_name}</p>
+                      <p>- เผยแพร่:&nbsp;<Moment format="DD/MM/YYYY">{dateToFormat}</Moment></p>
+                    </div>
+                  </Col>
+                </Row>
+              </div>
             </center>
-            <p style={{ fontSize: 16, marginRight: 490, color: '#24292e' }}>กรุณาอ่านข้อตกลงการใช้บริการและทำความเข้าใจ ก่อน download ffc airsync</p>
+            <p style={{ fontSize: 16, color: '#24292e' }}>กรุณาอ่านข้อตกลงการใช้บริการและทำความเข้าใจ ก่อน download ffc airsync</p>
             <center style={{ marginTop: -35 }}>
-              <Card style={{ width: 1000, marginTop: 50 }}>
+              <Card style={{ maxWidth: 1000,marginLeft:'20px',marginRight:'20px', marginTop: 50 }}>
                 <div className="Fontsize" style={{ textAlign: "left" }}>
                   <p style={{ marginTop: 10 }}><h2>ข้อตกลงการใช้บริการ</h2></p><hr></hr>
                   <p style={{ marginTop: 20, fontSize: 16, color: '#24292e' }}>โปรดอ่านข้อตกลงฉบับนี้อย่างระมัดระวังก่อนใช้บริการ และโปรดปฏิบัติตามเงื่อนไข ตลอดจนข้อกำหนดในข้อตกลงฉบับนี้อย่างเคร่งครัด</p>
@@ -151,7 +156,7 @@ export class AppForm extends Component {
               </FormItem>
             </Form>
           </center>
-        </div>
+        </Layout>
       )
     }
   }
@@ -163,64 +168,39 @@ export class AppForm extends Component {
     console.log(data, 'dkhdfbg');
   }
 
+  drawerToggleClickHandler = () => {
+        this.setState((prevState) => {
+          return { sideDrawerOpen: !prevState.sideDrawerOpen };
+        });
+      };
+    
+      backdropClickHandler = () => {
+        this.setState({ sideDrawerOpen: false });
+      };
+
   render() {
+    let backdrop;
+        if (this.state.sideDrawerOpen) {
+          backdrop = <Backdrop click={this.backdropClickHandler} />
+        }
+    const { activeItem } = this.state
     const { Footer, Content, Header } = Layout;
     return (
       <div className="App">
-        {/* <div style={{ height: 105, backgroundColor: '#46bd93' }}> */}
         <Layout>
-          <Header className="header" style={{ backgroundColor: '#46bd93', height: 105 }}>
-            <div className="header">
-              <Row gutter={24}>
-                <Col className="gutter-row" span={8}>
-                  <div className="gutter-box">
-                    <a href="https://ffc.in.th/index">
-                      <img style={{ height: 100, width: 100, marginRight: 180 }} src="LOGO_White.png" ></img>
-                    </a>
-                  </div>
-                </Col>
-                <Col className="menu">
-                  <div className="gutter-box">
-                    <Menu
-                      mode="horizontal"
-                      defaultSelectedKeys={['2']}
-                      style={{ lineHeight: '103px', backgroundColor: '#46bd93', height: 106, marginLeft: 560, fontSize: 16 }}
-                    >
-                      <Menu.Item key="alipay">
-                        <a href="https://ffc.in.th/#What" target="_blank" rel="noopener noreferrer" >ABOUT</a>
-                      </Menu.Item>
-                      <Menu.Item key="alipay">
-                        <a href="https://ffc.in.th/#Who" target="_blank" rel="noopener noreferrer">USER</a>
-                      </Menu.Item>
-                      <Menu.Item key="alipay">
-                        <a href="https://ffc.in.th/#tour" target="_blank" rel="noopener noreferrer">FEATURES</a>
-                      </Menu.Item>
-                      <Menu.Item key="alipay">
-                        <a href="https://ffc.in.th/FAQ-ffc.html" target="_blank" rel="noopener noreferrer">FAQ</a>
-                      </Menu.Item>
-                      <Menu.Item key="alipay">
-                        <a href="https://ffc.in.th/download-ffc.html" target="_blank" rel="noopener noreferrer">DOWNLOAD</a>
-                      </Menu.Item>
-                      <Menu.Item key="alipay">
-                        <a href="https://ffc.in.th/download-ffc.html#contact" target="_blank" rel="noopener noreferrer">CONTACT</a>
-                      </Menu.Item>
-                    </Menu>
-                  </div>
-                </Col>
-              </Row>
-            </div>
-          </Header>
-          <Content style={{ backgroundColor: '#fff' }}>
+        <Toolbar drawerToggleClickHandler={this.drawerToggleClickHandler} />
+         <SideDrawer show={this.state.sideDrawerOpen} />
+         {backdrop}
+         <div style={{paddingTop:100 , background: '#fff'}}>
+         <Content style={{ backgroundColor: '#fff' }}>
             {this.test()}
           </Content>
-          <Footer style={{ backgroundColor: '#1DA57A' }}>
-            <center>
-              <img style={{ height: 45, width: 100 }} src="nstda.png"></img>
-              <p style={{ fontSize: 16, color: '#fff', marginTop: 5 }}>สงวนลิขสิทธิ์ ตาม พ.ร.บ.ลิขสิทธิ์ พ.ศ. 2537 โดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ</p>
-            </center>
-          </Footer>
+         </div>
+         <div className="toorbar" style={{height:110, background: '#46bd93'}}>
+            <img style={{ height: 45, width: 100, marginTop: 10 }} src="nstda.png"></img>
+            <p style={{ fontSize: 16, color: '#fff', marginTop: 5 }}>สงวนลิขสิทธิ์ ตาม พ.ร.บ.ลิขสิทธิ์ พ.ศ. 2537 โดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ</p>
+         </div>
         </Layout>
-
       </div>
     );
   }
