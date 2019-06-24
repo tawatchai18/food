@@ -21,7 +21,7 @@ const toolbar = props => (
                     <li ><a href="https://ffc.in.th/#tour">FEATURES</a></li>
                     <li ><a href="https://ffc.in.th/FAQ-ffc.html">FAQ</a></li>
                     <li ><a href="https://ffc.in.th/download-ffc.html">DOWNLOAD</a></li>
-                    <li ><a href="https://ffc.in.th/download-ffc.html#contact">CONTACT</a></li>
+                    <li ><a href="https://ffc.in.th/#contact">CONTACT</a></li>
                 </ul>
             </div>
         </nav>
