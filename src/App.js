@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import Toolbar from './components/Toolbar/Toolbar';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
 import './App.css';
-import { Layout, Button, Tabs, Checkbox, Form, Card, Row, Col, Menu } from 'antd';
+import { Layout, Button, Tabs, Checkbox, Form, Card, Row, Col, Menu, Input, Icon } from 'antd';
 import Moment from 'react-moment';
 // import { Menu } from 'semantic-ui-react'
 
@@ -11,14 +12,16 @@ const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 const FormItem = Form.Item;
-
 export class AppForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       next: 'Home',
       person: '',
+      remember: false,
+      message: "ยอมรับข้อตกลงการใช้บริการ",
       sideDrawerOpen: false,
+      redirectToReferrer: false,
     };
   }
 
@@ -27,9 +30,21 @@ export class AppForm extends Component {
     }
   }
 
+  handleCheck = (e) => {
+    this.setState({ remember: e.target.checked })
+  }
+
   handleHo = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
+      if (this.state.remember != true) {
+        console.log(this.state.message,'popopop00000');
+        console.log(this.state.remember);
+        return this.state.message;   
+      }
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
       if (!err) {
         setTimeout((anchor) => {
           window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe", 100);
@@ -39,7 +54,6 @@ export class AppForm extends Component {
         this.setState({ next: 'q' })
       }
     });
-
   }
 
   handleH = () => {
@@ -54,7 +68,7 @@ export class AppForm extends Component {
   }
 
   test = () => {
-    const { person } = this.state;
+    const { person, remember } = this.state;
     const dateToFormat = person.published_at;
     console.log(person.assets, '111110');
 
@@ -93,7 +107,7 @@ export class AppForm extends Component {
             </center>
             <center>
               <div className="Font">
-                <Row gutter={16} style={{ marginBottom: 50, fontSize: 16, maxWidth: 1000,marginLeft:'20px',marginRight:'20px' }}>
+                <Row gutter={16} style={{ marginBottom: 50, fontSize: 16, maxWidth: 1000, marginLeft: '20px', marginRight: '20px' }}>
                   <Col className="gutter-row" span={6}>
                     <div className="gutter-box" style={{ textAlign: "initial", }}>
                       <p style={{ fontSize: 18 }}>System requirements</p>
@@ -115,7 +129,7 @@ export class AppForm extends Component {
             </center>
             <p style={{ fontSize: 16, color: '#24292e' }}>กรุณาอ่านข้อตกลงการใช้บริการและทำความเข้าใจ ก่อน download ffc airsync</p>
             <center style={{ marginTop: -35 }}>
-              <Card style={{ maxWidth: 1000,marginLeft:'20px',marginRight:'20px', marginTop: 50 }}>
+              <Card style={{ maxWidth: 1000, marginLeft: '20px', marginRight: '20px', marginTop: 50 }}>
                 <div className="Fontsize" style={{ textAlign: "left" }}>
                   <p style={{ marginTop: 10 }}><h2>ข้อตกลงการใช้บริการ</h2></p><hr></hr>
                   <p style={{ marginTop: 20, fontSize: 16, color: '#24292e' }}>โปรดอ่านข้อตกลงฉบับนี้อย่างระมัดระวังก่อนใช้บริการ และโปรดปฏิบัติตามเงื่อนไข ตลอดจนข้อกำหนดในข้อตกลงฉบับนี้อย่างเคร่งครัด</p>
@@ -146,8 +160,13 @@ export class AppForm extends Component {
                   {
                     rules: [{ required: true, message: 'กรุณากดยอมรับข้อตกลงการใช้บริการ' }],
                   })(
+                    // <div>
+                    //   <input type="checkbox" name="remember" checked={this.state.remember} onChange={this.handleCheck}/> 
+                    // </div>
                     <div style={{ marginTop: 30, width: 360, }}>
-                      <Checkbox style={{ fontSize: 16 }}>ยอมรับข้อตกลงการใช้บริการ</Checkbox>
+                      <Checkbox style={{ fontSize: 16 }} name="remember"
+                        checked={this.state.remember} 
+                        onChange={this.handleCheck} >ยอมรับข้อตกลงการใช้บริการ</Checkbox>
                     </div>
                   )}
               </Form.Item>
@@ -169,37 +188,37 @@ export class AppForm extends Component {
   }
 
   drawerToggleClickHandler = () => {
-        this.setState((prevState) => {
-          return { sideDrawerOpen: !prevState.sideDrawerOpen };
-        });
-      };
-    
-      backdropClickHandler = () => {
-        this.setState({ sideDrawerOpen: false });
-      };
+    this.setState((prevState) => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
+  };
 
   render() {
     let backdrop;
-        if (this.state.sideDrawerOpen) {
-          backdrop = <Backdrop click={this.backdropClickHandler} />
-        }
+    if (this.state.sideDrawerOpen) {
+      backdrop = <Backdrop click={this.backdropClickHandler} />
+    }
     const { activeItem } = this.state
     const { Footer, Content, Header } = Layout;
     return (
       <div className="App">
         <Layout>
-        <Toolbar drawerToggleClickHandler={this.drawerToggleClickHandler} />
-         <SideDrawer show={this.state.sideDrawerOpen} />
-         {backdrop}
-         <div style={{paddingTop:100 , background: '#fff'}}>
-         <Content style={{ backgroundColor: '#fff' }}>
-            {this.test()}
-          </Content>
-         </div>
-         <div className="toorbar" style={{height:110, background: '#46bd93'}}>
+          <Toolbar drawerToggleClickHandler={this.drawerToggleClickHandler} />
+          <SideDrawer show={this.state.sideDrawerOpen} />
+          {backdrop}
+          <div style={{ paddingTop: 100, background: '#fff' }}>
+            <Content style={{ backgroundColor: '#fff' }}>
+              {this.test()}
+            </Content>
+          </div>
+          <div className="toorbar" style={{ height: 110, background: '#46bd93' }}>
             <img style={{ height: 45, width: 100, marginTop: 10 }} src="nstda.png"></img>
             <p style={{ fontSize: 16, color: '#fff', marginTop: 5 }}>สงวนลิขสิทธิ์ ตาม พ.ร.บ.ลิขสิทธิ์ พ.ศ. 2537 โดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ</p>
-         </div>
+          </div>
         </Layout>
       </div>
     );
