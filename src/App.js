@@ -112,7 +112,7 @@ export class AppForm extends Component {
                     <div className="gutter-box" style={{ textAlign: "initial", }}>
                       <p style={{ fontSize: 18 }}>System requirements</p>
                       <p>- OS: Windows</p>
-                      <p>- Java: 1.8</p>
+                      <p>- Java: 1.8 x64 </p>
                       <p>- Ram: 4 GB ขึ้นไป</p>
                       <p>- จำเป็นต้องติดตั้ง JHCIS</p>
                     </div>
