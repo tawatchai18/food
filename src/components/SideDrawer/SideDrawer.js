@@ -9,12 +9,13 @@ const sideDrawer = props => {
     return (
         <nav className={drawerClasses}>
             <ul>
-            <li ><a href="https://ffc.in.th/#What">HOME</a></li>
-                    <li ><a href="https://ffc.in.th/#Who">USER</a></li>
-                    <li ><a href="https://ffc.in.th/#tour">FEATURES</a></li>
+            <li ><a href="https://ffc.in.th/#What">Home</a></li>
+                    {/* <li ><a href="https://ffc.in.th/#Who">USER</a></li>
+                    <li ><a href="https://ffc.in.th/#tour">FEATURES</a></li> */}
                     {/* <li ><a href="https://ffc.in.th/FAQ-ffc.html">FAQ</a></li> */}
-                    <li ><a href="https://download.ffc.in.th">DOWNLOAD</a></li>
-                    <li ><a href="https://www.ffc.in.th/contact/">CONTACT</a></li>
+                    <li ><a href="https://download.ffc.in.th">Download</a></li>
+                    <li><a href="https://www.ffc.in.th/blog/">Blog</a></li>
+                    <li ><a href="https://www.ffc.in.th/contact/">Contact</a></li>
             </ul>
         </nav>
     );
