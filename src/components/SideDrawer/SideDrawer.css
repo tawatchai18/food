@@ -23,7 +23,7 @@
 }
 
 .side-drawer li{
-    background: #46bd93;
+    background: white;
     height: 8%;
     text-align: center;
     
@@ -33,7 +33,7 @@
 }
 
 .side-drawer a{
-    color:white;
+    color:#333333;
     text-decoration: none;
     font-size: 2rem;
 }

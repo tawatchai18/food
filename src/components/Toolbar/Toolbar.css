@@ -3,7 +3,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #46bd93;
+    /* background: #46bd93; */
+    background: white;
+    border-bottom: 3px solid rgb(245, 245, 245);
     height: 100px;
     z-index: 99
 }
@@ -37,7 +39,7 @@
 }
 
 .toolbar_navigation-items a {
-    color: white;
+    color:#333333;
     text-decoration: none;
 }
 .toolbar_navigation-items a:hover,

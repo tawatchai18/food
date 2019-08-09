@@ -10,11 +10,11 @@ const toolbar = props => (
             </div>
             <div className="toolbar_logo">
                 <a href="https://ffc.in.th/">
-                    <img style={{ height: 100, width: 100, marginRight: 50 }} src="LOGO_White.png" ></img>
+                    <img style={{ height: 100, width: 100, marginLeft: 125 }} src="LOGO_Color.png" ></img>
                 </a>
             </div>
             <div className="spacer" />
-            <div className="toolbar_navigation-items" style={{fontSize:16}}> 
+            <div className="toolbar_navigation-items" style={{fontSize:16, marginRight:160}}> 
                 <ul>
                     <li ><a href="https://ffc.in.th/#What">Home</a></li>
                     {/* <li ><a href="https://ffc.in.th/#Who">USER</a></li>

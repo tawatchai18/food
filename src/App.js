@@ -38,9 +38,9 @@ export class AppForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (this.state.remember != true) {
-        console.log(this.state.message,'popopop00000');
+        console.log(this.state.message, 'popopop00000');
         console.log(this.state.remember);
-        return this.state.message;   
+        return this.state.message;
       }
       if (!err) {
         console.log('Received values of form: ', values);
@@ -165,7 +165,7 @@ export class AppForm extends Component {
                     // </div>
                     <div style={{ marginTop: 30, width: 360, }}>
                       <Checkbox style={{ fontSize: 16 }} name="remember"
-                        checked={this.state.remember} 
+                        checked={this.state.remember}
                         onChange={this.handleCheck} >ยอมรับข้อตกลงการใช้บริการ</Checkbox>
                     </div>
                   )}
@@ -206,7 +206,7 @@ export class AppForm extends Component {
     const { Footer, Content, Header } = Layout;
     return (
       <div className="App">
-        <Layout>
+        <Layout style={{ background: '#F5F5F5' }}>
           <Toolbar drawerToggleClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
@@ -215,9 +215,41 @@ export class AppForm extends Component {
               {this.test()}
             </Content>
           </div>
-          <div className="toorbar" style={{ height: 110, background: '#46bd93' }}>
-            <img style={{ height: 45, width: 100, marginTop: 10 }} src="nstda.png"></img>
-            <p style={{ fontSize: 16, color: '#fff', marginTop: 5 }}>สงวนลิขสิทธิ์ ตาม พ.ร.บ.ลิขสิทธิ์ พ.ศ. 2537 โดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ</p>
+          <div style={{ marginTop: 50, background: '#F5F5F5', fontSize: 16 }}>
+            <Row gutter={16} type="flex" justify="center" style={{ padding: '0px 347px' }}>
+              <Col className="gutter-row" span={4}>
+                <div className="gutter-box">
+                  <a href="{{ site.baseurl }}/contact"><p style={{ color: '#595959' }}>Contact us</p></a>
+                </div>
+              </Col>
+              <Col className="gutter-row" span={4}>
+                <div className="gutter-box">
+                  <a href="{{ site.baseurl }}/blog"><p style={{ color: '#595959' }}>Blog</p></a>
+                </div>
+              </Col>
+              <Col className="gutter-row" span={4}>
+                <div className="gutter-box">
+                  <a href="{{ site.baseurl }}/policy"><p style={{ color: '#595959' }}>Privacy Policy</p></a>
+                </div>
+              </Col>
+              <Col className="gutter-row" span={4}>
+                <div className="gutter-box">
+                  <a href="{{ site.baseurl }}/terms"><p style={{ color: '#595959' }}>Terms</p></a>
+                </div>
+              </Col>
+            </Row>
+            {/* <Row type="flex" justify="center" style={{ background: '#F5F5F5', padding:'0px 350px'}}>
+              <Col span={4}><a href="{{ site.baseurl }}/contact"><p style={{color:'#595959'}}>Contact us</p></a></Col>
+              <Col span={4}><a href="{{ site.baseurl }}/blog"><p style={{color:'#595959'}}>Blog</p></a></Col>
+              <Col span={4}><a href="{{ site.baseurl }}/policy"><p style={{color:'#595959'}}>Privacy Policy</p></a></Col>
+              <Col span={4}><a href="{{ site.baseurl }}/terms"><p style={{color:'#595959'}}>Terms</p></a></Col>
+            </Row> */}
+          </div>
+          <div className="toorbar" style={{ height: 110, background: '#F5F5F5', marginTop: 20 }}>
+            <img style={{ height: 45, width: 100, marginTop: 10 }} src="nstda-color1.png"></img>
+            <p>Copyright &copy; 2019<a href="https://www.nstda.or.th/" target="_blank">NSTDA </a>National Science and Technology Development Agency</p>
+            <p>This website use <a href="https://github.com/ndrewtl/airspace-jekyll" target="_blank">Airspace</a>. Theme developed and design by <a href="http://www.themefisher.com">Themefisher</a>.</p>
+            {/* <p style={{ fontSize: 16, color: '#fff', marginTop: 5 }}>สงวนลิขสิทธิ์ ตาม พ.ร.บ.ลิขสิทธิ์ พ.ศ. 2537 โดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ</p> */}
           </div>
         </Layout>
       </div>
