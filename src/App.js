@@ -47,7 +47,7 @@ export class AppForm extends Component {
       }
       if (!err) {
         setTimeout((anchor) => {
-          window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe", 100);
+          window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
         }, 0);
       }
       if (!err) {
@@ -81,7 +81,7 @@ export class AppForm extends Component {
             <h2 style={{ marginTop: 200, fontSize: 30, fontFamily: 'Kanit' }}>
               ขอบคุณสำหรับการดาวน์โหลด FFC AirSync
             </h2>
-            <h3 style={{ fontSize: 24, fontFamily: 'Kanit' }} class="sub-title no-margin-bottom">หากท่านดาวน์โหลด FFC AirSync ไม่ได้ กรุณากดที่นี่ <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.0/ffc-airsync-installer.exe' id="download-link">link</a>.</h3>
+            <h3 style={{ fontSize: 24, fontFamily: 'Kanit' }} class="sub-title no-margin-bottom">หากท่านดาวน์โหลด FFC AirSync ไม่ได้ กรุณากดที่นี่ <a data-release-download-link="" href='https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe' id="download-link">link</a>.</h3>
           </center>
         </Layout>
       )
