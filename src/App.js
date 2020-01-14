@@ -4,14 +4,15 @@ import Toolbar from './components/Toolbar/Toolbar';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
 import './App.css';
-import { Layout, Button, Tabs, Checkbox, Form, Card, Row, Col, Menu, Input, Icon } from 'antd';
+import { Layout, Button, Checkbox, Form, Card, Row, Col } from 'antd';
 import Moment from 'react-moment';
-// import { Menu } from 'semantic-ui-react'
-
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
+import { deviceDetect } from 'react-device-detect';
 
 const FormItem = Form.Item;
+const str = deviceDetect().userAgent
+const word = str.includes('Win64');
+console.log(word, 'llllll');
+
 export class AppForm extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +24,17 @@ export class AppForm extends Component {
       sideDrawerOpen: false,
       redirectToReferrer: false,
     };
+  }
+
+  renderContent = () => {
+    if (word) {
+      return  setTimeout(() => {
+        window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
+      }, 0);
+    }
+    else if (word !== undefined) {
+      return alert('เครื่องคุณไม่รองรับการใช้งาน FFC Airsync')
+    }
   }
 
   onSubmit = (key) => {
@@ -46,10 +58,12 @@ export class AppForm extends Component {
         console.log('Received values of form: ', values);
       }
       if (!err) {
-        setTimeout((anchor) => {
-          window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
-        }, 0);
-      }
+        this.renderContent()
+        // setTimeout(() => {
+        //   window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
+        // }, 0);
+      } 
+      
       if (!err) {
         this.setState({ next: 'q' })
       }
@@ -160,9 +174,6 @@ export class AppForm extends Component {
                   {
                     rules: [{ required: true, message: 'กรุณากดยอมรับข้อตกลงการใช้บริการ' }],
                   })(
-                    // <div>
-                    //   <input type="checkbox" name="remember" checked={this.state.remember} onChange={this.handleCheck}/> 
-                    // </div>
                     <div style={{ marginTop: 30, width: 360, }}>
                       <Checkbox style={{ fontSize: 16 }} name="remember"
                         checked={this.state.remember}
@@ -202,8 +213,7 @@ export class AppForm extends Component {
     if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClickHandler} />
     }
-    const { activeItem } = this.state
-    const { Footer, Content, Header } = Layout;
+    const { Content } = Layout;
     return (
       <div className="App">
         <Layout style={{ background: '#F5F5F5' }}>
