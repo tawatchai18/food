@@ -26,16 +26,16 @@ export class AppForm extends Component {
     };
   }
 
-  renderContent = () => {
-    if (word) {
-      return  setTimeout(() => {
-        window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
-      }, 0);
-    }
-    else if (word !== undefined) {
-      return alert('เครื่องคุณไม่รองรับการใช้งาน FFC Airsync')
-    }
-  }
+  // renderContent = () => {
+  //   if (word) {
+  //     return  setTimeout(() => {
+  //       window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
+  //     }, 0);
+  //   }
+  //   else if (word !== undefined) {
+  //     return alert('เครื่องคุณไม่รองรับการใช้งาน FFC Airsync')
+  //   }
+  // }
 
   onSubmit = (key) => {
     if (this.state.order.length === 0) {
@@ -58,10 +58,9 @@ export class AppForm extends Component {
         console.log('Received values of form: ', values);
       }
       if (!err) {
-        this.renderContent()
-        // setTimeout(() => {
-        //   window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
-        // }, 0);
+        setTimeout(() => {
+          window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
+        }, 0);
       } 
       
       if (!err) {
