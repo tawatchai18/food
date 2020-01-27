@@ -32,7 +32,7 @@ export class AppForm extends Component {
     //   return
     // }
     // else if (word !== undefined) {
-    if (word !== undefined) {
+    if (!word) {
       return <Button style={{ fontSize: 20 }} type="danger" >เครื่องของคุณไม่รองรับการใช้งาน FFC Airsync</Button>
     }
   }
@@ -192,7 +192,7 @@ export class AppForm extends Component {
                     )}
                 </Form.Item>
               )},
-              {(word !== undefined) && (
+              {(!word) && (
                 <Form.Item>
                   {getFieldDecorator('remember',
                     {
@@ -206,7 +206,7 @@ export class AppForm extends Component {
                     )}
                 </Form.Item>
               )}
-              {(word !== undefined) && (
+              {(!word) && (
                 <Form.Item>
                   {getFieldDecorator('re',
                     {
