@@ -20,22 +20,22 @@ export class AppForm extends Component {
       next: 'Home',
       person: '',
       remember: false,
+      re: false,
       message: "ยอมรับข้อตกลงการใช้บริการ",
       sideDrawerOpen: false,
       redirectToReferrer: false,
     };
   }
 
-  // renderContent = () => {
-  //   if (word) {
-  //     return  setTimeout(() => {
-  //       window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
-  //     }, 0);
-  //   }
-  //   else if (word !== undefined) {
-  //     return alert('เครื่องคุณไม่รองรับการใช้งาน FFC Airsync')
-  //   }
-  // }
+  renderContent = () => {
+    // if (word) {
+    //   return
+    // }
+    // else if (word !== undefined) {
+    if (word !== undefined) {
+      return <Button style={{ fontSize: 20 }} type="danger" >เครื่องของคุณไม่รองรับการใช้งาน FFC Airsync</Button>
+    }
+  }
 
   onSubmit = (key) => {
     if (this.state.order.length === 0) {
@@ -46,23 +46,26 @@ export class AppForm extends Component {
     this.setState({ remember: e.target.checked })
   }
 
+  handle = (e) => {
+    this.setState({ re: e.target.checked })
+  }
+
   handleHo = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
-      if (this.state.remember != true) {
-        console.log(this.state.message, 'popopop00000');
-        console.log(this.state.remember);
+      if (this.state.remember && this.state.re != true) {
         return this.state.message;
       }
+      // if (!err) {
+      //   console.log('Received values of form: ', values);
+      // }
       if (!err) {
         console.log('Received values of form: ', values);
-      }
-      if (!err) {
         setTimeout(() => {
           window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
         }, 0);
-      } 
-      
+      }
+
       if (!err) {
         this.setState({ next: 'q' })
       }
@@ -81,7 +84,7 @@ export class AppForm extends Component {
   }
 
   test = () => {
-    const { person, remember } = this.state;
+    const { person } = this.state;
     const dateToFormat = person.published_at;
     console.log(person.assets, '111110');
 
@@ -138,6 +141,13 @@ export class AppForm extends Component {
                     </div>
                   </Col>
                 </Row>
+                <Row gutter={16} style={{ marginBottom: 50, fontSize: 16, maxWidth: 1000, marginLeft: '20px', marginRight: '20px' }}>
+                  <Col className="gutter-row" span={12}>
+                    <div className="gutter-box" style={{ textAlign: "initial", }}>
+                      {this.renderContent()}
+                    </div>
+                  </Col>
+                </Row>
               </div>
             </center>
             <p style={{ fontSize: 16, color: '#24292e' }}>กรุณาอ่านข้อตกลงการใช้บริการและทำความเข้าใจ ก่อน download ffc airsync</p>
@@ -168,18 +178,49 @@ export class AppForm extends Component {
           </div>
           <center>
             <Form onSubmit={this.handleHo} className="login-form">
-              <Form.Item>
-                {getFieldDecorator('remember',
-                  {
-                    rules: [{ required: true, message: 'กรุณากดยอมรับข้อตกลงการใช้บริการ' }],
-                  })(
-                    <div style={{ marginTop: 30, width: 360, }}>
-                      <Checkbox style={{ fontSize: 16 }} name="remember"
-                        checked={this.state.remember}
-                        onChange={this.handleCheck} >ยอมรับข้อตกลงการใช้บริการ</Checkbox>
-                    </div>
-                  )}
-              </Form.Item>
+              {(word === undefined) && (
+                <Form.Item>
+                  {getFieldDecorator('remember',
+                    {
+                      rules: [{ required: true, message: 'กรุณากดยอมรับข้อตกลงการใช้บริการ' }],
+                    })(
+                      <div style={{ marginTop: 30, width: 360, }}>
+                        <Checkbox style={{ fontSize: 16 }} name="remember"
+                          checked={this.state.remember}
+                          onChange={this.handleCheck} >ยอมรับข้อตกลงการใช้บริการ</Checkbox>
+                      </div>
+                    )}
+                </Form.Item>
+              )},
+              {(word !== undefined) && (
+                <Form.Item>
+                  {getFieldDecorator('remember',
+                    {
+                      rules: [{ required: true, message: 'กรุณากดยอมรับข้อตกลงการใช้บริการ' }],
+                    })(
+                      <div style={{ marginTop: 30, width: 360, }}>
+                        <Checkbox style={{ fontSize: 16 }} name="remember"
+                          checked={this.state.remember}
+                          onChange={this.handleCheck} >ยอมรับข้อตกลงการใช้บริการ</Checkbox>
+                      </div>
+                    )}
+                </Form.Item>
+              )}
+              {(word !== undefined) && (
+                <Form.Item>
+                  {getFieldDecorator('re',
+                    {
+                      // กรุณาตรวจสอบเครื่องของคุณ ใช้ java 64 bit ไหม ก่อนดาวน์โหลด
+                      rules: [{ required: true, message: 'กรุณาตรวจสอบเครื่องของคุณ รองรับระบบการทำงาน 64 bit ก่อนดาวน์โหลด' }],
+                    })(
+                      <div style={{ width: 360, }}>
+                        <Checkbox style={{ fontSize: 16 }} name="re"
+                          checked={this.state.re}
+                          onChange={this.handle} >เครื่องของคุณไม่รองรับการใช้งาน FFC Airsync</Checkbox>
+                      </div>
+                    )}
+                </Form.Item>
+              )}
               <FormItem>
                 <Button style={{ width: 150, height: 40, fontSize: 20 }} type="primary" htmlType="submit" className="login-form-button">Download</Button>
               </FormItem>
@@ -247,18 +288,11 @@ export class AppForm extends Component {
                 </div>
               </Col>
             </Row>
-            {/* <Row type="flex" justify="center" style={{ background: '#F5F5F5', padding:'0px 350px'}}>
-              <Col span={4}><a href="{{ site.baseurl }}/contact"><p style={{color:'#595959'}}>Contact us</p></a></Col>
-              <Col span={4}><a href="{{ site.baseurl }}/blog"><p style={{color:'#595959'}}>Blog</p></a></Col>
-              <Col span={4}><a href="{{ site.baseurl }}/policy"><p style={{color:'#595959'}}>Privacy Policy</p></a></Col>
-              <Col span={4}><a href="{{ site.baseurl }}/terms"><p style={{color:'#595959'}}>Terms</p></a></Col>
-            </Row> */}
           </div>
           <div className="toorbar" style={{ height: 110, background: '#F5F5F5', marginTop: 20 }}>
             <img style={{ height: 45, width: 100, marginTop: 10 }} src="nstda-color1.png"></img>
             <p>Copyright &copy; 2019<a href="https://www.nstda.or.th/" target="_blank">NSTDA </a>National Science and Technology Development Agency</p>
             <p>This website use <a href="https://github.com/ndrewtl/airspace-jekyll" target="_blank">Airspace</a>. Theme developed and design by <a href="http://www.themefisher.com">Themefisher</a>.</p>
-            {/* <p style={{ fontSize: 16, color: '#fff', marginTop: 5 }}>สงวนลิขสิทธิ์ ตาม พ.ร.บ.ลิขสิทธิ์ พ.ศ. 2537 โดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ</p> */}
           </div>
         </Layout>
       </div>
