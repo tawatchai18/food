@@ -53,14 +53,16 @@ export class AppForm extends Component {
   handleHo = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
-      if (this.state.remember && this.state.re != true) {
+      if (this.state.re !== true) {
         return this.state.message;
       }
-      // if (!err) {
-      //   console.log('Received values of form: ', values);
-      // }
+      if (this.state.remember !== true) {
+        return this.state.message;
+      }
       if (!err) {
         console.log('Received values of form: ', values);
+      }
+      if (!err) {
         setTimeout(() => {
           window.setTimeout(window.location.href = "https://github.com/ffc-nectec/airsync-launcher/releases/download/1.1.1/ffc-airsync-installer.exe", 100);
         }, 0);
