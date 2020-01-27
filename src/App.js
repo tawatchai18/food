@@ -178,7 +178,7 @@ export class AppForm extends Component {
           </div>
           <center>
             <Form onSubmit={this.handleHo} className="login-form">
-              {(word === undefined) && (
+              {(word) && (
                 <Form.Item>
                   {getFieldDecorator('remember',
                     {
