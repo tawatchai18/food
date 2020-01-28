@@ -212,8 +212,9 @@ export class AppForm extends Component {
                 <Form.Item>
                   {getFieldDecorator('re',
                     {
+                      // เมื่อโหลดไปแล้วเครื่องของคุณไม่สามารถติดตั้ง ffc airsync ได้
                       // กรุณาตรวจสอบเครื่องของคุณ ใช้ java 64 bit ไหม ก่อนดาวน์โหลด
-                      rules: [{ required: true, message: 'กรุณาตรวจสอบเครื่องของคุณ รองรับระบบการทำงาน 64 bit ก่อนดาวน์โหลด' }],
+                      rules: [{ required: true, message: 'เมื่อโหลดไปแล้วเครื่องของคุณไม่สามารถติดตั้ง ffc airsync ได้' }],
                     })(
                       <div style={{ width: 360, }}>
                         <Checkbox style={{ fontSize: 16 }} name="re"

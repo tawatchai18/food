@@ -1,6 +1,14 @@
 import React from 'react';
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 import './Toolbar.css';
+import ReactGa from 'react-ga';
+
+
+const trackingId = "UA-156975553-1"; // Replace with your Google Analytics tracking ID
+ReactGa.initialize(trackingId);
+
+ReactGa.pageview('https://download.ffc.in.th')
+
 
 const toolbar = props => (
     <header className="toolbar">
