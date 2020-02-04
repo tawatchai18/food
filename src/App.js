@@ -214,7 +214,8 @@ export class AppForm extends Component {
                     {
                       // เมื่อโหลดไปแล้วเครื่องของคุณไม่สามารถติดตั้ง ffc airsync ได้
                       // กรุณาตรวจสอบเครื่องของคุณ ใช้ java 64 bit ไหม ก่อนดาวน์โหลด
-                      rules: [{ required: true, message: 'กรุณาตรวจสอบเครื่องของคุณ รองรับระบบการทำงาน 64 bit ก่อนดาวน์โหลด' }],
+                      // กรุณายอมรับข้อตกลง
+                      rules: [{ required: true, message: 'กรุณากดยอมรับ (เครื่องของคุณไม่รองรับการใช้งาน FFC Airsync)' }],
                     })(
                       <div style={{ width: 360, }}>
                         <Checkbox style={{ fontSize: 16 }} name="re"
