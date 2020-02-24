@@ -6,12 +6,12 @@ import Backdrop from './components/Backdrop/Backdrop';
 import './App.css';
 import { Layout, Button, Checkbox, Form, Card, Row, Col } from 'antd';
 import Moment from 'react-moment';
-import { deviceDetect } from 'react-device-detect';
+// import { deviceDetect } from 'react-device-detect';
 
 const FormItem = Form.Item;
-const str = deviceDetect().userAgent
-const word = str.includes('Win64');
-console.log(word, 'llllll');
+// const str = deviceDetect().userAgent
+// const word = str.includes('Win64');
+// console.log(word, 'llllll');
 
 export class AppForm extends Component {
   constructor(props) {
@@ -20,22 +20,22 @@ export class AppForm extends Component {
       next: 'Home',
       person: '',
       remember: false,
-      re: false,
+      // re: false,
       message: "ยอมรับข้อตกลงการใช้บริการ",
       sideDrawerOpen: false,
       redirectToReferrer: false,
     };
   }
 
-  renderContent = () => {
-    // if (word) {
-    //   return
-    // }
-    // else if (word !== undefined) {
-    if (!word) {
-      return <Button style={{ fontSize: 20 }} type="danger" >เครื่องของคุณไม่รองรับการใช้งาน FFC Airsync</Button>
-    }
-  }
+  // renderContent = () => {
+  //   // if (word) {
+  //   //   return
+  //   // }
+  //   // else if (word !== undefined) {
+  //   if (!word) {
+  //     return <Button style={{ fontSize: 20 }} type="danger" >เครื่องของคุณไม่รองรับการใช้งาน FFC Airsync</Button>
+  //   }
+  // }
 
   onSubmit = (key) => {
     if (this.state.order.length === 0) {
@@ -53,9 +53,9 @@ export class AppForm extends Component {
   handleHo = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
-      if (this.state.re !== true) {
-        return this.state.message;
-      }
+      // if (this.state.re !== true) {
+      //   return this.state.message;
+      // }
       if (this.state.remember !== true) {
         return this.state.message;
       }
@@ -144,11 +144,11 @@ export class AppForm extends Component {
                   </Col>
                 </Row>
                 <Row gutter={16} style={{ marginBottom: 50, fontSize: 16, maxWidth: 1000, marginLeft: '20px', marginRight: '20px' }}>
-                  <Col className="gutter-row" span={12}>
+                  {/* <Col className="gutter-row" span={12}>
                     <div className="gutter-box" style={{ textAlign: "initial", }}>
                       {this.renderContent()}
                     </div>
-                  </Col>
+                  </Col> */}
                 </Row>
               </div>
             </center>
@@ -180,7 +180,6 @@ export class AppForm extends Component {
           </div>
           <center>
             <Form onSubmit={this.handleHo} className="login-form">
-              {(word) && (
                 <Form.Item>
                   {getFieldDecorator('remember',
                     {
@@ -193,7 +192,7 @@ export class AppForm extends Component {
                       </div>
                     )}
                 </Form.Item>
-              )},
+              {/* )},
               {(!word) && (
                 <Form.Item>
                   {getFieldDecorator('remember',
@@ -224,7 +223,7 @@ export class AppForm extends Component {
                       </div>
                     )}
                 </Form.Item>
-              )}
+              )} */}
               <FormItem>
                 <Button style={{ width: 150, height: 40, fontSize: 20 }} type="primary" htmlType="submit" className="login-form-button">Download</Button>
               </FormItem>
